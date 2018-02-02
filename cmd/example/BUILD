@@ -5,7 +5,10 @@ go_library(
     srcs = ["main.go"],
     importpath = "github.com/scele/go-dep-bazel-vscode-example/cmd/example",
     visibility = ["//visibility:private"],
-    deps = ["@com_github_sirupsen_logrus//:go_default_library"],
+    deps = [
+        "//pkg/something:go_default_library",
+        "@com_github_sirupsen_logrus//:go_default_library",
+    ],
 )
 
 go_binary(

@@ -21,6 +21,7 @@ go_rules_dependencies()
 
 dep_import(
     name = "godeps",
+    prefix = "github.com/scele/go-dep-bazel-vscode-examples",
     gopkg_lock = "//:Gopkg.lock",
 )
 load("@godeps//:Gopkg.bzl", "go_deps")
