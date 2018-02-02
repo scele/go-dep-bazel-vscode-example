@@ -3,3 +3,44 @@
 </p>
 
 ## Example setup for go + dep + bazel + vscode
+
+This project shows how to use [rules_go_dep](https://github.com/scele/rules_go_dep) to set up a development enviromnent.
+
+### Clone this example project
+
+```bash
+go get -u github.com/scele/go-dep-bazel-vscode-example
+cd $GOPATH/src/github.com/scele/go-dep-bazel-vscode-example
+```
+
+> **NOTE:** The build does not require the source to be under `$GOPATH`, but `dep ensure` does.
+
+### Build and run with bazel
+
+```bash
+bazel build //...
+bazel run //cmd/example
+```
+
+### Use vscode to debug
+
+```bash
+code -n .
+```
+
+In vscode, open `cmd/example/main.go` and start debugging using the pre-configured launch config.
+
+### Update go dependencies
+
+```bash
+dep ensure
+rm -rf ./vendor
+```
+
+The `vendor` directory should be manually deleted, since the dependencies will be pulled through bazel.
+
+### Update BUILD files
+
+```bash
+bazel run //:gazelle
+```
