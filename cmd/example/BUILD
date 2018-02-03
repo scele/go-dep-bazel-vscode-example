@@ -16,4 +16,8 @@ go_binary(
     embed = [":go_default_library"],
     importpath = "github.com/scele/go-dep-bazel-vscode-example/cmd/example",
     visibility = ["//visibility:public"],
+    gc_linkopts = [
+        "-linkmode",
+        "internal",
+    ],
 )

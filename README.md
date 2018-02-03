@@ -6,6 +6,22 @@
 
 This project shows how to use [rules_go_dep](https://github.com/scele/rules_go_dep) to set up a development enviromnent.
 
+### Prerequisites
+
+It is assumed that dep, bazel and vscode are already installed.
+
+Currently the setup requires a custom build of the `vscode-go` extension, which can be installed with the following commands:
+
+```bash
+wget https://github.com/scele/vscode-go/releases/download/0.6.72-lpeltonen.2/Go-0.6.72-lpeltonen.2.vsix
+code --install-extension ./Go-0.6.72-lpeltonen.2.vsix
+rm ./Go-0.6.72-lpeltonen.2.vsix
+```
+
+#### MacOS
+
+- [Install delve](https://github.com/derekparker/delve/blob/master/Documentation/installation/osx/install.md) (you may need to apply [this workaround](https://github.com/go-delve/homebrew-delve/issues/19#issuecomment-330442033) if the installation fails)
+
 ### Clone this example project
 
 ```bash

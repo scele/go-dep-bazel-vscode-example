@@ -1,3 +1,4 @@
 {
-    "go.gopath": "${workspaceFolder}/.gopath",
+    "go.gopath": "${workspaceFolder}/bazel-gopath",
+    "go.gotoSymbol.resolveSymlinks": true
 }
