@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://blog.golang.org/gopher/gopher.png" height="180"><img src="https://raw.githubusercontent.com/golang/dep/master/docs/assets/DigbyShadows.png" height="180"><img src="https://bazel.build/images/bazel-icon.svg" height="180"><img src="https://user-images.githubusercontent.com/49339/32078472-5053adea-baa7-11e7-9034-519002f12ac7.png" height="180">
+  <a href="https://golang.org"><img src="https://blog.golang.org/gopher/gopher.png" height="180"></a><a href="https://golang.github.io/dep/"><img src="https://raw.githubusercontent.com/golang/dep/master/docs/assets/DigbyShadows.png" height="180"></a><a href="https://bazel.build/"><img src="https://bazel.build/images/bazel-icon.svg" height="180"></a><a href="https://code.visualstudio.com/"><img src="https://user-images.githubusercontent.com/49339/32078472-5053adea-baa7-11e7-9034-519002f12ac7.png" height="180"></a>
 </p>
 
 ## Example setup for go + dep + bazel + vscode
@@ -17,6 +17,8 @@ wget https://github.com/scele/vscode-go/releases/download/0.6.72-lpeltonen.2/Go-
 code --install-extension ./Go-0.6.72-lpeltonen.2.vsix
 rm ./Go-0.6.72-lpeltonen.2.vsix
 ```
+
+The project setup points `vscode-go` to a fake `GOPATH` constructed into the bazel build area.  To prevent `vscode-go` from installing its dependency tools there, you should set `go.toolsGopath` in your vscode user settings to point somewhere else (e.g. to your normal `GOPATH`).
 
 #### MacOS
 
@@ -44,7 +46,10 @@ bazel run //cmd/example
 code -n .
 ```
 
-In vscode, open `cmd/example/main.go` and start debugging using the pre-configured launch config.
+In vscode, open `cmd/example/main.go`, set a breakpoint, and hit <kbd>F5</kbd> to start debugging.
+Starting debugging will automatically invoke `bazel build`.
+
+To build the app without launching debugger, you can hit <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>B</kbd> (<kbd>⇧⌘B</kbd> on macOS).
 
 ### Update go dependencies
 
